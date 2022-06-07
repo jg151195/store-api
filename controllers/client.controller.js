@@ -48,7 +48,7 @@ async function updateClient(req, res, next) {
     
     try {
         let client = req.body;
-        if (!client.name || !client.cpf || !client.phone || !client.email || !client.address || !client.client_id) {
+        if (!client.name || !client.cpf || !client.phone || !client.email || !client.address || !client.clientId) {
             throw new Error("Client ID, Name, CPF, Phone, Email and Address are obligated")
         }
         client = await clientService.updateClient(client);

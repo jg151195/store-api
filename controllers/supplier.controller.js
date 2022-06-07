@@ -3,7 +3,8 @@ import supplierService from "../services/supplier.service.js"
 async function createSupplier(req, res, next) {
     try {
         let supplier = req.body;
-        if (!supplier.name || !supplier.cpf || !supplier.phone || !supplier.email || !supplier.address) {
+        console.log(supplier)
+        if (!supplier.name || !supplier.cpf || !supplier.phone || !supplier.email || !supplier.adress) {
             throw new Error("Name, cpf, Phone, Email and Address are obligated")
         }
         supplier = await supplierService.createSupplier(supplier)
@@ -48,7 +49,7 @@ async function updateSupplier(req, res, next) {
     
     try {
         let supplier = req.body;
-        if (!supplier.name || !supplier.cpf || !supplier.phone || !supplier.email || !supplier.address || !supplier.supplier_id) {
+        if (!supplier.name || !supplier.cpf || !supplier.phone || !supplier.email || !supplier.adress || !supplier.supplierId) {
             throw new Error("Supplier ID, Name, cpf, Phone, Email and Address are obligated")
         }
         supplier = await supplierService.updateSupplier(supplier);
